@@ -11,7 +11,13 @@ $(document).ready(function(){  // when (document) is loaded, do beneath
 	 // to put the 9 boxes into the box
 	 for (var x = 0; x < 9; x) {
 	 for (var i = x; i < x + 3; i++){
-	 	$('<div class="select_box col-xs-4"></div>').appendTo(".game");
+
+	 	var clicked_square = $('<div class="select_box col-xs-4"></div>').attr("id", i);
+	 	clicked_square.appendTo(".game");
+	 	clicked_square.click(function(){
+	 		console.log("This Worked");
+	 		console.log($(this).attr('id'));
+	 	});
 	 	console.log(i);
 	 	
 
