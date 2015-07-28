@@ -1,14 +1,18 @@
-.container {
+.game_play {
 	border: 1px solid;
 	height: 800px;
 }
 
 .select_box {
-	width: 180px;
+	width: 33%;
 	height: 180px;
 	border: 1px solid;
 }
 
-.game {
-	padding-top: 100px;
+.gameboard {
+	margin-top: 100px;
+	border: 1px solid;
+	height: 550px;
+	background-size: 100%;
 }
+
