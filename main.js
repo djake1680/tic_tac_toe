@@ -3,10 +3,10 @@ var cell_position = [];
 var player_array =['X','O']
 var player_index = 0
 
-$(document).ready(function(){
-	$(".gameboard").addClass("container col-xs-8");
-	 $("<div class='game'></div>").appendTo(".gameboard");
-	 $(".game").addClass("row");
+$(document).ready(function(){  // when (document) is loaded, do beneath
+	$(".gameboard").addClass("container col-xs-8");  //adding classes to .gameboard
+	 $("<div class='game'></div>").appendTo(".gameboard"); //adding a div class="game" into gameboard
+	 $(".game").addClass("row");  //adding class row to .game
 
 	 // to put the 9 boxes into the box
 	 for (var x = 0; x < 9; x) {
@@ -16,7 +16,7 @@ $(document).ready(function(){
 	 	
 
 	 }
-	 x = i;
+	 x = i; //after 2nd for loop, assign i to x
 	}
 });
 
