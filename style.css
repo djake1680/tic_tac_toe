@@ -1,0 +1,14 @@
+.container {
+	border: 1px solid;
+	height: 800px;
+}
+
+.select_box {
+	width: 180px;
+	height: 180px;
+	border: 1px solid;
+}
+
+.game {
+	padding-top: 100px;
+}
