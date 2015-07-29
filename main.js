@@ -1,16 +1,15 @@
 var y;
 var cell_position = [];
-var player_array =['X','O'];
-var player_index = 0;
-var player_clicks = [];
-var win_options = [];
-var times_clicked = 0;
+var player_array =['X','O']; 
+var player_index = 0; //changes from x's turn to o's turn and back
+var player_clicks = []; //puts an x or an o in the array where it is clicked
+var win_options = []; //will carry the different options to win the game
+var times_clicked = 0; //makes sure there's been 5 cards clicked
 
 		
-
+// sets up the array to numbers 0-8 so the only matches can be x's or o's
 for (i = 0; i < 9; i++){
 	player_clicks[i] = i;
-	console.log(player_clicks);
 }
 
 $(document).ready(function(){  // when (document) is loaded, do beneath
@@ -18,34 +17,33 @@ $(document).ready(function(){  // when (document) is loaded, do beneath
 	 $("<div class='game'></div>").appendTo(".gameboard"); //adding a div class="game" into gameboard
 	 $(".game").addClass("row");  //adding class row to .game
 
-	 // to put the 9 boxes into the box
+	 // to put the 9 boxes into the gameboard
 	 for (var x = 0; x < 9; x) {
 	 	for (var i = x; i < x + 3; i++){
 
-	 		var clicked_square = $('<div class="select_box col-xs-4"></div>').attr("id", i);
-	 		clicked_square.appendTo(".game");
+	 		var clicked_square = $('<div class="select_box col-xs-4"></div>').attr("id", i);//add id/number to each square
+	 		clicked_square.appendTo(".game"); //adds the div to the gameboard
 	 	
-		 	clicked_square.click(function(){
-		 		console.log($(this).attr('id'));
-		 		var cell_number = ($(this).attr('id'));
-		 		if (player_index == 0) {
-		 			$(this).addClass("x_card");
-		 			player_index = 1;
-		 			player_clicks[cell_number] = "x";
+		 	clicked_square.click(function(){ //when the square is clicked
+		 		//console.log($(this).attr('id')); //used to console.log which id was clicked
+		 		var cell_number = ($(this).attr('id')); //puts the id number that's clicked into a var
+		 		if (player_index == 0) {  //player_index 0 means it's x's turn to play
+		 			$(this).addClass("x_card");  //adds the class of .x_card for bg picture/etc
+		 			player_index = 1; //change player_index to one so next time .clicked is called, it's player o
+		 			player_clicks[cell_number] = "x"; //puts x into the player_clicks array in the cell_number index
 		 		}
-		 		else {
-		 			$(this).addClass("o_card");
-		 			player_index = 0;
-		 			player_clicks[cell_number] = "o";
+		 		else { //it's o's turn to play
+		 			$(this).addClass("o_card"); //adds the class of .o_card for bg picture/etc
+		 			player_index = 0; //change player_index to 0 so next time .clicked is called, it's player x
+		 			player_clicks[cell_number] = "o"; //puts o into the player_clicks array in the cell_number index
 		 		}
-		 		times_clicked += 1;
-		 		whos_turn();
-		 		console.log("check if someone won");
+		 		times_clicked += 1; //after each click, this is added by 1 to make sure later there's at least 5 clicks before testing for a winner
+		 		whos_turn(); //after each iteration, calls function whos_turn to change box of player 1 or 2 to show who's turn it is 
 
 		 		//put comparison to see if there's a winner
-		 		if (times_clicked == 5){
+		 		if (times_clicked == 5){ //5 clicks needed to see if someone won (3 from x, 2 from o)
 		 			console.log("5 spaces have been clicked");
-		 			check_winner();
+		 			check_winner(); // once 5 clicks, calls function check_winner to see if there's a winner
 		 		}
 		 	});
 		 	
@@ -56,10 +54,15 @@ $(document).ready(function(){  // when (document) is loaded, do beneath
 	}
 });
 
-
-function check_winner(){
-	console.log("check winner");
-	win_options = [
+/*********
+* function that checks if there's a winner using possible win options (the array)
+* 
+* global variable: win_options array.  
+**********/
+function check_winner(){   //NOT FUNCTIONING YET //see if there's a winner
+	console.log("check winner"); 
+	//these are all the possible win options
+	win_options = [ 
 		['0', '1', '2'],
 		['3', '4', '5'],
 		['6', '7', '8'],
@@ -74,7 +77,7 @@ function check_winner(){
 /*******
 **function that changes the visual appearance of the 
 **player button
-* uses global variable player_index
+** global variable: player_index
 *******/
 function whos_turn()
 {
@@ -90,29 +93,13 @@ function whos_turn()
 			$('.Xplayer').css('border', 'none');
 		}
 }
-/******
-**function that either adds the Xclass or Oclass based on who clicked 
-**on the cell
-******/
-/*function player_turn()
-{
-	if(player_array[0])
-	{
-		$('Xclass').show();
-		player_index++
-	}else
-		{
-			$('Oclass').show();
-			player_index--
-		}
 
-}*/
 
 function cell_click(cell_number)
 {
 	
 	cell_position[cell_number]=player_array[player_index];//Fills the cell_position array with either X or O in the position of the clicked game piece
 	player_turn();//calls player_turn function
-	whos_turn();//calls whos_turn function
+	
 }
 
