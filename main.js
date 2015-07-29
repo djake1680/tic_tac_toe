@@ -79,8 +79,8 @@ function check_winner(){   //NOT FUNCTIONING YET //see if there's a winner
 			if(player_clicks[win_options[i][0]]==player_clicks[win_options[i][1]]
 				&&
 				player_clicks[win_options[i][1]]==player_clicks[win_options[i][2]]){
-	
-				alert('we have a winner');
+				win_confirmation();
+				break;
 				}
 		}
 	}
@@ -105,6 +105,18 @@ function whos_turn()
 			$('.Oplayer').css('border', '5px solid green');
 			$('.Xplayer').css('border', 'none');
 		}
+}
+
+function win_confirmation(){
+	if (player_index==0){
+		player_index=1;
+	}else{
+		player_index=0;
+	}
+	
+	if (confirm('Congratulations! Player ' + player_array[player_index] + ' is the winner!\nPlay Again?')==true){
+		location.reload();
+	}
 }
 
 
