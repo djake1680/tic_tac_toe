@@ -5,6 +5,7 @@ var player_index = 0; //changes from x's turn to o's turn and back
 var player_clicks = []; //puts an x or an o in the array where it is clicked
 var win_options = []; //will carry the different options to win the game
 var times_clicked = 0; //makes sure there's been 5 cards clicked
+var winner_found = 0;
 var win_options = [  //these are all possible win options
 		['0', '1', '2'],
 		['3', '4', '5'],
@@ -56,7 +57,13 @@ $(document).ready(function(){  // when (document) is loaded, do beneath
 		 			console.log("5 spaces have been clicked");
 		 			check_winner(); // once 5 clicks, calls function check_winner to see if there's a winner
 		 		}
+
+		 		if (times_clicked == 9 && winner_found == 0) {
+		 			//console.log("It's a tie");
+		 			tie_game();
+		 		}
 		 	});
+
 		 	
 
 	 	
@@ -80,6 +87,7 @@ function check_winner(){   //NOT FUNCTIONING YET //see if there's a winner
 				&&
 				player_clicks[win_options[i][1]]==player_clicks[win_options[i][2]]){
 				win_confirmation();
+				winner_found = 1;
 				break;
 				}
 		}
@@ -117,6 +125,12 @@ function win_confirmation(){
 	if (confirm('Congratulations! Player ' + player_array[player_index] + ' is the winner!\nPlay Again?')==true){
 		location.reload();
 	}
+}
+
+function tie_game(){
+	if (confirm('Game ended in a tie!  Would you like to play again?')==true){
+		location.reload();
+}
 }
 
 
