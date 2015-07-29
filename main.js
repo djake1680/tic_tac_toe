@@ -14,9 +14,19 @@ $(document).ready(function(){  // when (document) is loaded, do beneath
 
 	 	var clicked_square = $('<div class="select_box col-xs-4"></div>').attr("id", i);
 	 	clicked_square.appendTo(".game");
+	 	
 	 	clicked_square.click(function(){
 	 		console.log("This Worked");
 	 		console.log($(this).attr('id'));
+	 		if (player_index == 0) {
+	 			$(this).addClass("x_card");
+	 			player_index = 1;
+	 		}
+	 		else {
+	 			$(this).addClass("o_card");
+	 			player_index = 0;
+	 		}
+	 		
 	 	});
 	 	console.log(i);
 	 	

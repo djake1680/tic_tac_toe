@@ -22,6 +22,7 @@
 	margin-top: 100px;
 }
 
+
 .player_button {
 	width: 60%;
 	height: 60px;
@@ -36,5 +37,17 @@
 
 .Xplayer {
 	margin-bottom: 5%;
+
+.x_card {
+	background-image: url(images/x.jpg);
+	background-size: 90%;
+	background-repeat: no-repeat;
+}
+
+.o_card {
+	background-image: url(images/o.png);
+	background-size: 90%;
+	background-repeat: no-repeat;
+
 }
 
