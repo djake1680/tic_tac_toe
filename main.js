@@ -1,7 +1,8 @@
 var y;
 var cell_position = [];
-var player_array =['X','O']
-var player_index = 0
+var player_array =['X','O'];
+var player_index = 0;
+var player_clicks = [];
 
 $(document).ready(function(){  // when (document) is loaded, do beneath
 	$(".gameboard").addClass("container col-xs-8");  //adding classes to .gameboard
