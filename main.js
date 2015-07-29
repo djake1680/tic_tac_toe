@@ -5,6 +5,16 @@ var player_index = 0; //changes from x's turn to o's turn and back
 var player_clicks = []; //puts an x or an o in the array where it is clicked
 var win_options = []; //will carry the different options to win the game
 var times_clicked = 0; //makes sure there's been 5 cards clicked
+var win_options = [  //these are all possible win options
+		['0', '1', '2'],
+		['3', '4', '5'],
+		['6', '7', '8'],
+		['0', '4', '8'],
+		['2', '4', '6'],
+		['0', '3', '6'],
+		['1', '4', '7'],
+		['2', '5', '8'],
+		];
 
 		
 // sets up the array to numbers 0-8 so the only matches can be x's or o's
@@ -26,6 +36,7 @@ $(document).ready(function(){  // when (document) is loaded, do beneath
 	 	
 		 	clicked_square.click(function(){ //when the square is clicked
 		 		//console.log($(this).attr('id')); //used to console.log which id was clicked
+		 		$(this).unbind('click');
 		 		var cell_number = ($(this).attr('id')); //puts the id number that's clicked into a var
 		 		if (player_index == 0) {  //player_index 0 means it's x's turn to play
 		 			$(this).addClass("x_card");  //adds the class of .x_card for bg picture/etc
@@ -41,7 +52,7 @@ $(document).ready(function(){  // when (document) is loaded, do beneath
 		 		whos_turn(); //after each iteration, calls function whos_turn to change box of player 1 or 2 to show who's turn it is 
 
 		 		//put comparison to see if there's a winner
-		 		if (times_clicked == 5){ //5 clicks needed to see if someone won (3 from x, 2 from o)
+		 		if (times_clicked >= 5){ //5 clicks needed to see if someone won (3 from x, 2 from o)
 		 			console.log("5 spaces have been clicked");
 		 			check_winner(); // once 5 clicks, calls function check_winner to see if there's a winner
 		 		}
@@ -60,18 +71,20 @@ $(document).ready(function(){  // when (document) is loaded, do beneath
 * global variable: win_options array.  
 **********/
 function check_winner(){   //NOT FUNCTIONING YET //see if there's a winner
-	console.log("check winner"); 
-	//these are all the possible win options
-	win_options = [ 
-		['0', '1', '2'],
-		['3', '4', '5'],
-		['6', '7', '8'],
-		['0', '4', '8'],
-		['2', '4', '6'],
-		['0', '3', '6'],
-		['1', '4', '7'],
-		['2', '5', '8'],
-		];
+	console.log("check winner run"); 
+	console.log('value of i is _'+ i);
+	for(var i = 0; i < win_options.length; i++){
+		for(var j=0; j <win_options[i].length; j++){
+	
+			if(player_clicks[win_options[i][0]]==player_clicks[win_options[i][1]]
+				&&
+				player_clicks[win_options[i][1]]==player_clicks[win_options[i][2]]){
+				win_confirmation();
+				break;
+				}
+		}
+	}
+	//alert('Congratulations! Player ' + player_array[player_index] + 'Wins!');	
 }
 
 /*******
@@ -94,12 +107,24 @@ function whos_turn()
 		}
 }
 
-
-function cell_click(cell_number)
-{
+function win_confirmation(){
+	if (player_index==0){
+		player_index=1;
+	}else{
+		player_index=0;
+	}
 	
-	cell_position[cell_number]=player_array[player_index];//Fills the cell_position array with either X or O in the position of the clicked game piece
-	player_turn();//calls player_turn function
-	
+	if (confirm('Congratulations! Player ' + player_array[player_index] + ' is the winner!\nPlay Again?')==true){
+		location.reload();
+	}
 }
+
+
+// function cell_click(cell_number)
+// {
+	
+// 	cell_position[cell_number]=player_array[player_index];//Fills the cell_position array with either X or O in the position of the clicked game piece
+// 	player_turn();//calls player_turn function
+	
+// }
 
