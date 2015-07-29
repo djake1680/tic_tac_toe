@@ -16,3 +16,9 @@
 	background-size: 100%;
 }
 
+.player_board {
+	border: 1px solid;
+	height: 550px;
+	margin-top: 100px;
+}
+
