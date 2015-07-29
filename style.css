@@ -22,3 +22,15 @@
 	margin-top: 100px;
 }
 
+.x_card {
+	background-image: url(images/x.jpg);
+	background-size: 90%;
+	background-repeat: no-repeat;
+}
+
+.o_card {
+	background-image: url(images/o.png);
+	background-size: 90%;
+	background-repeat: no-repeat;
+}
+
