@@ -1,17 +1,24 @@
+body {
+	background-image: url("images/chalkboard.jpg");
+	background-size: 100%;
+}
+
 .game_play {
-	border: 1px solid;
 	height: 800px;
+	//background-image: url("images/chalkboard.jpg");
 }
 
 .select_box {
 	width: 33%;
 	height: 180px;
-	border: 1px solid;
+	border: 5px solid white;
+	background-image: url("images/emptypiece.png");
+	opacity: 0.9;
+
 }
 
 .gameboard {
 	margin-top: 100px;
-	border: 1px solid;
 	height: 550px;
 	background-size: 100%;
 }
@@ -41,14 +48,14 @@
 }
 
 .x_card {
-	background-image: url(images/x.jpg);
-	background-size: 90%;
+	background-image: url(images/xpiece.png);
+	background-size: 100%;
 	background-repeat: no-repeat;
 }
 
 .o_card {
-	background-image: url(images/o.png);
-	background-size: 90%;
+	background-image: url(images/opiece.png);
+	background-size: 100%;
 	background-repeat: no-repeat;
 
 }
