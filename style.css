@@ -5,7 +5,6 @@ body {
 
 .game_play {
 	height: 800px;
-	//background-image: url("images/chalkboard.jpg");
 }
 
 .select_box {
@@ -41,10 +40,16 @@ body {
 	text-align: center
 }
 
-.Xplayer {
-	margin-bottom: 5%;
-	border: 5px solid green;
+/*.Xplayer {*/
+	/*margin-bottom: 5%;*/
+	/*border: 5px solid white;*/
+    /*border-radius: 15px;*/
+/*}*/
 
+.playerTurn {
+    margin-bottom: 5%;
+    border: 5px solid white;
+    border-radius: 15px;
 }
 
 .x_card {

@@ -72,6 +72,8 @@ $(document).ready(function(){  // when (document) is loaded, do beneath
 	}
 });
 
+$(".Xplayer").addClass("playerTurn");
+
 /*********
 * function that checks if there's a winner using possible win options (the array)
 * 
@@ -92,7 +94,6 @@ function check_winner(){   //NOT FUNCTIONING YET //see if there's a winner
 				}
 		}
 	}
-	//alert('Congratulations! Player ' + player_array[player_index] + 'Wins!');	
 }
 
 /*******
@@ -103,16 +104,14 @@ function check_winner(){   //NOT FUNCTIONING YET //see if there's a winner
 function whos_turn()
 {
 	console.log("who's turn run");
-	if(player_index==0)
-	{
-		$('.Xplayer').css('border','5px solid green');
-		$('.Oplayer').css('border', 'none');
+	if (player_index == 0){
+		$(".Xplayer").addClass("playerTurn");
+		$(".Oplayer").removeClass("playerTurn");
 	}
-	else
-		{
-			$('.Oplayer').css('border', '5px solid green');
-			$('.Xplayer').css('border', 'none');
-		}
+	else {
+		$(".Xplayer").removeClass("playerTurn");
+		$(".Oplayer").addClass("playerTurn");
+	}
 }
 
 function win_confirmation(){
