@@ -1,9 +1,6 @@
-var y;
-var cell_position = [];
-var player_array =['X','O']; 
+var player_array =['X','O'];
 var player_index = 0; //changes from x's turn to o's turn and back
 var player_clicks = []; //puts an x or an o in the array where it is clicked
-var win_options = []; //will carry the different options to win the game
 var times_clicked = 0; //makes sure there's been 5 cards clicked
 var winner_found = 0;
 var win_options = [  //these are all possible win options
