@@ -1,35 +1,34 @@
-# Tic-Tac-Toe
+<h1>Tic-Tac-Toe</h1>
 
-You will be creating a fully functional Tic-Tac-Toe Game using: Javascript, jQuery, HTML and CSS.
+![alt text](screenshots/gameboard_home.png "Tic Tac Toe game board ready for play")
 
-## Layout
-1. Title / Menu
-2. Game Area:
-	- 3x3 board
-	- Dynamically generated
-	- 2 player indicators
-		- One for each player
-		- One highlights to indicate a player's turn
+<h3>Description:</h3>
+<p>Working in a team of 2, divide up work to build a fully functional Tic-Tac-Toe Game using:</p>
+- Javascript
+- jQuery 
+- HTML
+- CSS
 
-##  v0.5 Requirements
-1. Must generate a game board entirely with JS/jQuery
-2. Must mark each square alternately
-	- X then O, then back to X
-	- Squares cannot be re-clicked once set
-3. On each player's turn, must indicate the active player on play area
+<h3>Features:</h3>
+<p>Game Area</p>
+- 3x3 board
+- Dynamically generated using Javascript/jQuery
+- 2 player indicators
+- One highlights to indicate a player's turn
+- Mark each square alternately
+- X then O, then back to X, etc
+- Squares cannot be re-clicked once set
 
-## Wireframe Look
+![alt text](screenshots/gameplay.png "Game board during play")
 
-<img src="https://github.com/Learning-Fuze/tic-tac-toe/blob/assets/images/TTT_wireframe.png?raw=true" alt="Tic Tac Toe game board layout image">
 
-## Starting: HTML Version
-- Before attempting to create something dynamically with JS, you should make a static HTML version to emulate
-- Get the board looking how you would want it to look under normal circumstances
-- Then generate the JS to form that HTML with a function. In this case we will call it `initialize_game_board()`
+<p>End of game</p>
+- Game will check each turn after the 5th turn to see if there is a winner (5 turns minimum needed for there to be a winner)
+- If there is a winner, game will stop and alert the user who won
+- If there is no winner at the end, an alert will let you know it was a tie
+- If there is a  winner, or if there is a tie, you will be asked if you'd like to play again.  If you do, the game board will reset.  If you don't, the game board will stay as it was at the end of the game.  
 
-## Methods for changing a cell
-
-- One of the easiest ways to change the cell is to change the element's HTML/Text property
-- Store the current player's symbol in a variable
-	- Alternate the variables between clicks
-	- Track which player's turn it is, and use the current player's symbol
+<h3>Things I learned during this project</h3>
+- Work delegation with a team member.  Making sure we know our part of the project and that our individual parts will work well together.  
+- Checking conditions to see if there is a winner, or who's turn it is.  Finding a winner was more difficult than I imagined until we worked out the logic together.  
+- I loved learning how to dynamically create content for the page.  
