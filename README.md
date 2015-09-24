@@ -28,7 +28,7 @@
 - If there is no winner at the end, an alert will let you know it was a tie
 - If there is a  winner, or if there is a tie, you will be asked if you'd like to play again.  If you do, the game board will reset.  If you don't, the game board will stay as it was at the end of the game.  
 
-<h3>Thins I learned during this project</h3>
+<h3>Things I learned during this project</h3>
 - Work delegation with a team member.  Making sure we know our part of the project and that our individual parts will work well together.  
 - Checking conditions to see if there is a winner, or who's turn it is.  Finding a winner was more difficult than I imagined until we worked out the logic together.  
 - I loved learning how to dynamically create content for the page.  
